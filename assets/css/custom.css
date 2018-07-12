@@ -1,0 +1,32 @@
+.sidebar-dark-primary{
+    background-color :#532c7a;
+    background-image: url("../img/sidebar-bg.jpg");
+    
+}
+.large_modal {
+    max-width: 85% !important;
+}
+
+.sidebar-dark-primary .sidebar a{
+    color: #ffffff !important;
+    font-family: 'TisaSansProLight' !important;
+    font-size :0.9rem !important;
+}
+
+
+/* FONTS */
+
+@font-face {
+    font-family: 'TisaSansPro';
+    src:  url('../fonts/TisaSansPro.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TisaSansProLight';
+    src:  url('../fonts/TisaSansPro-Light.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+

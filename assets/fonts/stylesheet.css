@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'TisaSansPro';
+    src: url('TisaSansPro.eot');
+    src: url('TisaSansPro.eot?#iefix') format('embedded-opentype'),
+        url('TisaSansPro.woff2') format('woff2'),
+        url('TisaSansPro.woff') format('woff'),
+        url('TisaSansPro.ttf') format('truetype'),
+        url('TisaSansPro.svg#TisaSansPro') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
