@@ -11,11 +11,16 @@ if(isset($_POST['submit'])){
     $mobile = $_POST['mobile'];
     $shipping = $_POST['shipping'];
     $datetime = date("Y-m-d H:i:s");
+    $customerDOB = $_POST['dob'];
+
+    if($customerDOB == ""){
+      $customerDOB = "0000-00-00";
+    }
 
       require "dbconnection.php";
 
-      $stmt = $dbCon->prepare("INSERT INTO op_customers(FIRSTNAME,LASTNAME,EMAIL,DELIVERY_ADDRESS,MOBILE_NUMBER,DATE_CREATED,DATE_MODIFIED) VALUES(?,?,?,?,?,?,?)");
-      $stmt->bind_param("sssssss",$firstname,$lastname,$email,$shipping,$mobile,$datetime,$datetime);
+      $stmt = $dbCon->prepare("INSERT INTO op_customers(FIRSTNAME,LASTNAME,EMAIL,DELIVERY_ADDRESS,MOBILE_NUMBER,DATE_CREATED,DATE_MODIFIED,DOB) VALUES(?,?,?,?,?,?,?,?)");
+      $stmt->bind_param("sssssss",$firstname,$lastname,$email,$shipping,$mobile,$datetime,$datetime,$customerDOB);
       //$stmt->execute();
 
 if($stmt->execute() == true){
@@ -30,7 +35,7 @@ $dbCon->close();
 header('Location: ../customers.php?CustomerAdded');
 
 } else {
-  
+
   //When Customer couldnt be added to the points table the customer is deleted
   $sqlRollbackCustomer = "DELETE FROM op_customers WHERE CUSTOMER_ID='".$last_id."'";
   $dbCon->query($sqlRollbackCustomer);

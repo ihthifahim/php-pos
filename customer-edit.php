@@ -68,6 +68,11 @@ $customer = mysqli_fetch_array($customer_query);
                     <label>Shipping Address</label>
                     <input type="text" class="form-control"value="<?php echo $customer['DELIVERY_ADDRESS']; ?>" name="shipping">
                   </div>
+                  <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date"  class="form-control" value="<?php echo $customer['DOB']; ?>" name="dob">
+                  
+                  </div>
 
 
                 </div>

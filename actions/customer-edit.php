@@ -1,6 +1,6 @@
 <?php
-
-
+date_default_timezone_set("Asia/Colombo");
+session_start();
 
 
 if(isset($_POST['submit'])){
@@ -11,13 +11,15 @@ if(isset($_POST['submit'])){
     $mobile = $_POST['mobile'];
     $shipping = $_POST['shipping'];
     $datetime = date("Y-m-d H:i:s");
-    $userid = 1;
+    $userid = $_SESSION['user_id'];
+    $customerDOB = $_POST['dob'];
+
 
     require "dbconnection.php";
     $sql = "UPDATE op_customers SET FIRSTNAME = '".$firstname."'
     ,LASTNAME = '".$lastname."',EMAIL='".$email."'
     ,DELIVERY_ADDRESS='".$shipping."',MOBILE_NUMBER='".$mobile."'
-    ,DATE_MODIFIED = '".$datetime."' WHERE CUSTOMER_ID='".$cusid."'";
+    ,DATE_MODIFIED = '".$datetime."',DOB='".$customerDOB."' WHERE CUSTOMER_ID='".$cusid."'";
 
     if ($dbCon->query($sql) === TRUE) {
 

@@ -80,52 +80,58 @@ $customer_profit = mysqli_fetch_array($total_profit_query);
     <div class="text-center">
 
     </div>
-      
+
 <input type="hidden" id="cusemail" value="<?php echo $customer['EMAIL']; ?>" />
                   <script>
-      
+
           $(document).ready(function(){
-              
+
   var email = document.getElementById('cusemail').value;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET","actions/invoice/customer_lastvisit.php?status=cusLastvisit&email="+email,false);
   xmlhttp.send();
   document.getElementById("cusLastVisit").innerHTML=xmlhttp.responseText;
-          
-          
-          });
-          
 
-      
+
+          });
+
+
+
       </script>
 
 
 
       <h3 class="profile-username text-center"><strong><?php echo "".$customer['FIRSTNAME']." ".$customer['LASTNAME'].""; ?></strong></h3>
-      
 
-      
-      <p class="text-muted text-center">Last visited : 
-          
+
+
+      <p class="text-muted text-center">Last visited :
+
           <?php
-          
-          
+
+
           ?>
           <span id="cusLastVisit"></span></p>
 
-        
-        
-  
+
+
+
     <ul class="list-group list-group-unbordered mb-3">
       <li class="list-group-item">
         <b>Total Points</b> <a class="float-right"><?php echo $customer_points['CUSTOMER_POINTS']; ?></a>
       </li>
+      <?php
+        if($_SESSION['user_level'] == 1){
+          ?>
+
       <li class="list-group-item">
         <b>Total Sales</b> <a class="float-right"><?php  echo number_format($customer_sales['totalsales'],2); ?></a>
       </li>
       <li class="list-group-item">
         <b>Total Profit</b> <a class="float-right"><?php echo number_format($customer_profit['totalprofit'],2)  ?></a>
       </li>
+
+    <?php } ?>
     </ul>
 
 
@@ -231,7 +237,7 @@ $view_invocies_sql = "select * from op_invoice_main WHERE CUSTOMER_ID='".$custom
 $view_invoices_query = mysqli_query($dbCon,$view_invocies_sql);
 
 while($customer_invoices = mysqli_fetch_array($view_invoices_query)){
-    
+
     $view_user_sql = "select * from op_users WHERE USER_ID='".$customer_invoices['USER_ID']."'";
     $view_user_query = mysqli_query($dbCon,$view_user_sql);
     $user = mysqli_fetch_array($view_user_query);
@@ -243,16 +249,16 @@ echo "<tr>";
   echo "<td>".number_format($customer_invoices['INVOICE_TOTAL'],2)."</td>";
   echo "<td>".$user['FIRSTNAME']."</td>";
   echo "<td>".$customer_invoices['PAYMENT_METHOD']."</td>";
-    
+
         if($customer_invoices['PAYMENT_STATUS'] == "Paid"){
            echo "<td><span class='badge bg-success'>".$customer_invoices['PAYMENT_STATUS']."</span></td>";
       } else {
           echo "<td><span class='badge bg-danger'>".$customer_invoices['PAYMENT_STATUS']."</span></td>";
       }
-      
-    
-    
-  
+
+
+
+
   echo "<td><a href=final-invoice.php?InvoiceNumber=".$customer_invoices['INVOICE_NUMBER']."><span class='fa fa-edit'></span></a></td>";
   echo "</tr>";
 

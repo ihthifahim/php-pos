@@ -60,6 +60,10 @@ include 'template/main_navbar.php';
                     <input type="number" class="form-control" name="mobile" required>
                   </div>
                   <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" class="form-control col-md-3" name="dob">
+                  </div>
+                  <div class="form-group">
                     <label>Shipping Address</label>
                     <input type="text" class="form-control" name="shipping">
                   </div>
@@ -117,13 +121,13 @@ $(document).ready(function(){
 <div class="col-md-5">
 
 <div id="result"></div>
-    
-    <?php 
-    
+
+    <?php
+
     if(isset($_GET['CustomerAdded'])){
         echo "CUSTOMER ADDED";
     }
-    
+
     ?>
 
 </div>
