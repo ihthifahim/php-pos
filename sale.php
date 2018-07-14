@@ -32,11 +32,11 @@ include 'template/main_navbar.php';
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-9"><input class="form-control" type="text" placeholder="Product Description" name="ProductName" id="ProductName" autocomplete="off"></div>
-                            
+
                             <div class="col-md-2"><input class="form-control" type="number" placeholder="Quantity" id="qty"></div>
-                            
-                            
-                            
+
+
+
                             <div class="col-md-1"><button type="button" class="btn btn-block btn-navy btn-flat" onclick="ins()"><i class="fa fa-plus"></i></button></div>
 
 <div id="ProductNameList"></div>
@@ -54,7 +54,7 @@ include 'template/main_navbar.php';
                   <thead><tr>
                     <th>Product Description</th>
                     <th>Qty</th>
-                   
+
                     <th>Unit Price</th>
                       <th>Sub Total</th>
                   </tr>
@@ -83,10 +83,17 @@ include 'template/main_navbar.php';
 
 
             <div class="col-md-4">
-                
+
 <button type="button" name="resetInvoice" class="btn btn-block btn-danger btn-flat" onclick="resetInvoice()">RESET INVOICES</button><br/>
                 <br/>
-                <?php echo $_GET['error'];  ?>
+                <?php
+                  if(!isset($_GET['error'])){
+
+                  } else {
+                    echo $_GET['error'];
+                  }
+
+                 ?>
 <form action="actions/invoice/invoice.php" method="post" autocomplete="off">
 
                 <div class="card">
@@ -100,9 +107,9 @@ include 'template/main_navbar.php';
                   <div class="row">
                     <label class="col-md-6">Invoice #</label>
                     <input type="text" class="form-control form-control-sm text-right col-md-6" id="invoiceNumber" disabled="">
-                      
+
                   </div>
-                 
+
                   <br/>
 
                   <div class="row">
@@ -115,14 +122,14 @@ include 'template/main_navbar.php';
                         <label class="col-md-6">Customer Email</label>
                        <div class="input-group input-group-sm col-md-6">
                   <input type="text" class="form-control" placeholder="" id="CustomerName" name="CustomerEmail" autocomplete="off">
-                           
+
                            <span class="input-group-append">
                     <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#CustomerDetails">Go!</button>
                   </span>
-                           
+
                   <div id="CustomerList"></div>
                 </div>
-                       
+
                    <!-- <input class="form-control form-control-sm col-md-6 text-right" type="text" placeholder=""> -->
 
                   </div>
@@ -146,7 +153,7 @@ include 'template/main_navbar.php';
                     <span class="input-group-text">LKR</span>
                   </div>
                   <input type="text" class="form-control" id="totalDiscount" disabled="" value="0.00" >
-                     
+
                 </div>
                   </div>
 
@@ -210,13 +217,13 @@ include 'template/main_navbar.php';
 
 
         </div>
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
                       <!-- Modal -->
 <div id="CustomerDetails" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -231,7 +238,7 @@ include 'template/main_navbar.php';
 
         <div class="modal-body">
 
-            
+
             <div class="row">
                        <div class="col-md-6">
                        <label class="">Customer Name</label><br/>
@@ -241,13 +248,13 @@ include 'template/main_navbar.php';
                         <div class="col-md-6">
                        <label class="">Mobile Number</label><br/>
                             <span id="cusNumber"></span>
-                    
+
 
                        </div>
 
                   </div>
             <br/>
-            
+
             <div class="row">
                        <div class="col-md-6">
                        <label class="">Last Visited</label><br/>
@@ -257,21 +264,21 @@ include 'template/main_navbar.php';
                         <div class="col-md-6">
                             <label class="">No of Visits</label><br/>
                             <span id="cusVisits"></span>
-                    
+
 
                        </div>
 
                   </div>
             <br/>
             <div class="row">
-                      
+
                        <label class="col-md-6">Total Points Balance</label>
                    <input type="text" class="form-control col-md-6 form-control-sm" placeholder="" disabled="" id="cusTotalPoints">
-                      
-                       
+
+
 
                   </div>
-           
+
 
 
         </div>
@@ -280,31 +287,31 @@ include 'template/main_navbar.php';
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-          
+
       </div>
     </div>
 
   </div>
 </div>
         <!-- end of modal -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -397,7 +404,7 @@ include 'template/main_navbar.php';
                     <select class="form-control form-control-sm col-md-6" name="paymentStatus">
                         <option value="Paid">Paid</option>
                       <option value="Pending">Pending</option>
-                      
+
 
                     </select>
 
