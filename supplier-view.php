@@ -170,12 +170,14 @@ $grn_query = mysqli_query($dbCon,$find_grn_sql);
 
                   <?php
                     while($sup_grn = mysqli_fetch_array($grn_query)){
+                      echo "<tr>";
                       echo "<td>".$sup_grn['GRN_NUMBER']."</td>";
                       echo "<td>".$sup_grn['GRN_DATE']."</td>";
                       echo "<td>".$sup_grn['GRN_TOTAL']."</td>";
                       echo "<td>".$sup_grn['USER_ID']."</td>";
                       echo "<td>".$sup_grn['PAYMENT_STATUS']."</td>";
-                      echo "<td>".$sup_grn['GRN_DATE']."</td>";
+                      echo "<td><a href=final_grn.php?grn=".$sup_grn['GRN_NUMBER']."><span class='fa fa-edit'></span></a></td>";
+                      echo "<tr>";
                     }
 
 

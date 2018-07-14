@@ -64,6 +64,13 @@ if(isset($_POST['saveGRN'])){
 
     if($insert_grnmain_query == TRUE){
 
+      $insert_grn_comments_sql = "insert into op_grn_comments (GRN_NUMBER,COMMENT,USER_ID,DATE_CREATED) VALUES ('".$grn_number."','".$remarks."','".$user_id."','".$grn_datetime."')";
+      $insert_grn_query = mysqli_query($dbCon,$insert_grn_comments_sql);
+
+      header("Location: ../../final_grn.php?grn=".$grn_number."");
+      unset($_SESSION["GRNNumber"]);
+      exit();
+
 
 
     }
