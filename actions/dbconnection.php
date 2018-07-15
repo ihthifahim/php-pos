@@ -1,6 +1,5 @@
 <?php
 
-
 //$dbCon = mysqli_connect("localhost","fiposadmin","Ogsx0^Knzlm5", "fipos");
 $dbCon = mysqli_connect("localhost","root","", "octapay");
 

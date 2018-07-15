@@ -121,7 +121,7 @@ include 'template/main_navbar.php';
                    <div class="row">
                         <label class="col-md-6">Customer Email</label>
                        <div class="input-group input-group-sm col-md-6">
-                  <input type="text" class="form-control" placeholder="" id="CustomerName" name="CustomerEmail" autocomplete="off">
+                  <input type="text" class="form-control" placeholder="" id="CustomerName" name="CustomerEmail" autocomplete="new-password">
 
                            <span class="input-group-append">
                     <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#CustomerDetails">Go!</button>

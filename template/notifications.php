@@ -262,6 +262,16 @@ if(isset($_GET['passUpdated'])){ ?>
 
 <?php } ?>
 
+<?php
 
+//===================================================================================================
+if(isset($_GET['mail'])){ ?>
 
+  <script>
+  $(document).ready(function(){
+      swal("Mail Sent", "Mail successfully sent to the customer", "success");
 
+  });
+  </script>
+
+<?php } ?>
