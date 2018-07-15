@@ -18,13 +18,14 @@ if(isset($_POST['submit'])){
     }
 
       require "dbconnection.php";
+      $insert_customer_sql = "INSERT INTO op_customers(FIRSTNAME,LASTNAME,EMAIL,DELIVERY_ADDRESS,MOBILE_NUMBER,DATE_CREATED,DATE_MODIFIED,DOB) VALUES('".$firstname."','".$lastname."','".$email."','".$shipping."','".$mobile."','".$datetime."','".$datetime."','".$customerDOB."')";
+      $insert_customer_query = mysqli_query($dbCon,$insert_customer_sql);
 
-      $stmt = $dbCon->prepare("INSERT INTO op_customers(FIRSTNAME,LASTNAME,EMAIL,DELIVERY_ADDRESS,MOBILE_NUMBER,DATE_CREATED,DATE_MODIFIED,DOB) VALUES(?,?,?,?,?,?,?,?)");
-      $stmt->bind_param("sssssss",$firstname,$lastname,$email,$shipping,$mobile,$datetime,$datetime,$customerDOB);
+
       //$stmt->execute();
 
-if($stmt->execute() == true){
-$stmt->close();
+if($insert_customer_query == true){
+
 
 //When Customer insert is done, customer is added to the points table
 $last_id = $dbCon->insert_id;
@@ -39,14 +40,16 @@ header('Location: ../customers.php?CustomerAdded');
   //When Customer couldnt be added to the points table the customer is deleted
   $sqlRollbackCustomer = "DELETE FROM op_customers WHERE CUSTOMER_ID='".$last_id."'";
   $dbCon->query($sqlRollbackCustomer);
+  //echo mysqli_error($dbCon);
   $dbCon->close();
-  header('Location: ../customers.php?CustomerFailedAdd123');
+  //header('Location: ../customers.php?CustomerFailedAdd123');
 
 }
 
 } else {
+  echo mysqli_error($dbCon);
 $dbCon->close();
-  header('Location: ../customers.php?CustomerFailedAdd');
+  //header('Location: ../customers.php?CustomerFailedAdd');
 }
 
 

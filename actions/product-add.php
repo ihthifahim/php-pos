@@ -5,17 +5,38 @@
 
 if(isset($_POST['submit'])){
 
-    $productDesc = $_POST['productDesc'];
-    $productSku = $_POST['supplierCode'];
-    $category = $_POST['category'];
-    $retailPrice = $_POST['retailPrice'];
-    $costPrice = $_POST['costPrice'];
+
+
+
+
+  require "dbconnection.php";
+
+
+    $productDesc = mysqli_real_escape_string($dbCon,$_POST['productDesc']);
+    $productSku = mysqli_real_escape_string($dbCon,$_POST['supplierCode']);
+    $category = mysqli_real_escape_string($dbCon,$_POST['category']);
+    $retailPrice = mysqli_real_escape_string($dbCon,$_POST['retailPrice']);
+    $costPrice = mysqli_real_escape_string($dbCon,$_POST['costPrice']);
     //$shipping = $_POST['profit'];
-    $supplierID = $_POST['supplier'];
-    $manageInventory = $_POST['manageInventory'];
+    $supplierID = mysqli_real_escape_string($dbCon,$_POST['supplier']);
+    $manageInventory = mysqli_real_escape_string($dbCon,$_POST['manageInventory']);
     $datetime = date("Y-m-d H:i:s");
 
-      require "dbconnection.php";
+    if($category == "None"){
+      $category = 0;
+    }
+
+    if($category == ""){
+      $category = 0;
+    }
+    if($supplierID == "None"){
+      $supplierID = 0;
+    }
+    if($supplierID == ""){
+      $supplierID = 0;
+    }
+
+
 
 
 if($costPrice > $retailPrice){
@@ -27,13 +48,12 @@ if($costPrice > $retailPrice){
   if($manageInventory == ''){
     $manageInventory = "";
   }
+        $insert_product_sql = "INSERT INTO op_products(PRODUCT_DESC,PRODUCT_SKU,CATEGORY_ID,RETAIL_PRICE,COST_PRICE,SUPPLIER_ID,MANAGE_STOCK,DATE_CREATED,DATE_MODIFIED) VALUES ('".$productDesc."','".$productSku."','".$category."','".$retailPrice."','".$costPrice."','".$supplierID."','".$manageInventory."','".$datetime."','".$datetime."')";
+        $insert_product_query = mysqli_query($dbCon,$insert_product_sql);
 
-        $stmt = $dbCon->prepare("INSERT INTO op_products(PRODUCT_DESC,PRODUCT_SKU,CATEGORY_ID,RETAIL_PRICE,COST_PRICE,SUPPLIER_ID,MANAGE_STOCK,DATE_CREATED,DATE_MODIFIED) VALUES(?,?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("sssssssss",$productDesc,$productSku,$category,$retailPrice,$costPrice,$supplierID,$manageInventory,$datetime,$datetime);
-        //$stmt->execute();
 
-  if($stmt->execute() == true){
-  $stmt->close();
+  if($insert_product_query == true){
+
 
 
   if($manageInventory == 1){
@@ -51,8 +71,8 @@ if($costPrice > $retailPrice){
       $sqlRollbackProduct = "DELETE FROM op_products WHERE PRODUCT_ID='".$last_id."'";
       $dbCon->query($sqlRollbackProduct);
       $dbCon->close();
-      header('Location: ../products.php?ProductFailedAdd');
-
+      //header('Location: ../products.php?ProductFailedAdd');
+      echo mysqli_error($dbCon);
     }
 
   } else {
@@ -67,8 +87,10 @@ if($costPrice > $retailPrice){
 
 }//when product statement is truee
 else {
+  echo mysqli_error($dbCon);
   $dbCon->close();
-    header('Location: ../products.php?ProductFailedAdd');
+
+    //header('Location: ../products.php?ProductFailedAdd');
 }
 
 

@@ -49,11 +49,11 @@ include 'template/main_navbar.php';
                   </div>
                   <div class="form-group">
                     <label>Last Name</label>
-                    <input type="text" class="form-control" name="lastname" required>
+                    <input type="text" class="form-control" name="lastname" >
                   </div>
                   <div class="form-group">
                     <label>Email Address</label>
-                    <input type="text" class="form-control" name="email" id="email" required>
+                    <input type="text" class="form-control" name="email" id="email" >
                   </div>
                   <div class="form-group">
                     <label>Mobile Number</label>

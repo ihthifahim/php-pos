@@ -78,10 +78,10 @@ while($record = mysqli_fetch_array($data)){
 
 $message .=  '<tr>';
 $message .=  '<td>'.$record['PRODUCT_DESC'].'</td>';
-$message .= '<td>'.$record['QTY']. '</td>';
+$message .= '<td>'.$record['QUANTITY']. '</td>';
 $message .=  '<td>'.$record['UNIT_PRICE'].'</td>';
 $message .=  '<td>'.$record['DISCOUNT'].'</td>';
-$message .=  '<td>'.$record['TOTAL'].'</td>';
+$message .=  '<td>'.$record['LINE_TOTAL'].'</td>';
 $message .=   '</tr>';
 
 }
@@ -142,9 +142,7 @@ Team Fitness Island<br/>
 ";
 
 
-}
-}
-}
+
 
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
