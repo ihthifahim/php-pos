@@ -47,6 +47,7 @@ if(isset($_POST['saveGRN'])){
 
       $insert_new_stock = "UPDATE op_product_stock SET STOCK_VALUE='".$new_stock."',DATE_MODIFIED='".$grn_datetime."' WHERE PRODUCT_ID='".$findproductID_data['PRODUCT_ID']."'";
       $insert_new_stock_query = mysqli_query($dbCon,$insert_new_stock);
+      echo mysqli_error($dbCon);
 
 
     }
@@ -59,7 +60,7 @@ if(isset($_POST['saveGRN'])){
     $getTotal_query = mysqli_query($dbCon,$getTotal_grndetails_sql);
     $getTotal_data = mysqli_fetch_array($getTotal_query);
 
-    $insert_grnmain_sql = "INSERT INTO op_grn (GRN_NUMBER,GRN_DATE,GRN_TOTAL,SUPPLIER_ID,PAYMENT_STATUS,PAYMENT_METHOD,USER_ID,DATE_CREATED,TOTAL_CARD,TOTAL_CASH) VALUES ('".$grn_number."','".$grnDate."','".$getTotal_data['GRN_TOTAL']."','".$supplier_name."','".$paymentStatus."','".$paymentMethod."','".$user_id."','".$grn_datetime."','".$card."','".$cash."')";
+    $insert_grnmain_sql = "INSERT INTO op_grn (GRN_NUMBER,GRN_DATE,GRN_TOTAL,SUPPLIER_ID,PAYMENT_STATUS,PAYMENT_METHOD,USER_ID,DATE_CREATED,TOTAL_CARD,TOTAL_CASH,DATE_MODIFIED) VALUES ('".$grn_number."','".$grnDate."','".$getTotal_data['GRN_TOTAL']."','".$supplier_name."','".$paymentStatus."','".$paymentMethod."','".$user_id."','".$grn_datetime."','".$card."','".$cash."','".$grn_datetime."')";
     $insert_grnmain_query = mysqli_query($dbCon,$insert_grnmain_sql);
 
     if($insert_grnmain_query == TRUE){
@@ -73,6 +74,8 @@ if(isset($_POST['saveGRN'])){
 
 
 
+    } else {
+      echo mysqli_error($dbCon);
     }
 
 

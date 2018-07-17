@@ -1,0 +1,6 @@
+// to find how much to pay the supplier
+
+select SUM(op_products.cost_price) from op_products
+INNER JOIN op_invoice_detail ON op_invoice_detail.PRODUCT_DESC=op_products.PRODUCT_DESC
+INNER JOIN op_invoice_main ON op_invoice_detail.INVOICE_NUMBER=op_invoice_main.INVOICE_NUMBER
+WHERE op_invoice_main.INVOICE_DATE = "2018-07-17" and op_products.SUPPLIER_ID=1
