@@ -1,4 +1,5 @@
 <?php
+$title = "Edit Customer";
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';
@@ -71,7 +72,7 @@ $customer = mysqli_fetch_array($customer_query);
                   <div class="form-group">
                     <label>Date of Birth</label>
                     <input type="date"  class="form-control" value="<?php echo $customer['DOB']; ?>" name="dob">
-                  
+
                   </div>
 
 

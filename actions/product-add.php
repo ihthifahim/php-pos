@@ -46,7 +46,7 @@ if($costPrice > $retailPrice){
 
 
   if($manageInventory == ''){
-    $manageInventory = "";
+    $manageInventory = 0;
   }
         $insert_product_sql = "INSERT INTO op_products(PRODUCT_DESC,PRODUCT_SKU,CATEGORY_ID,RETAIL_PRICE,COST_PRICE,SUPPLIER_ID,MANAGE_STOCK,DATE_CREATED,DATE_MODIFIED) VALUES ('".$productDesc."','".$productSku."','".$category."','".$retailPrice."','".$costPrice."','".$supplierID."','".$manageInventory."','".$datetime."','".$datetime."')";
         $insert_product_query = mysqli_query($dbCon,$insert_product_sql);

@@ -18,14 +18,14 @@ include('actions/auth.php');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>OCTAPAY</title>
+  <title><?php echo $title ?> - OctaPOS</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
     <script src="dist/js/jquery.js"></script>
-    
-  
-    
+
+
+
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.css">
     <link rel="stylesheet" href="assets/css/custom.css">
@@ -35,8 +35,8 @@ include('actions/auth.php');
 
 
 
-        
-   
+
+
 
 
 
@@ -74,7 +74,7 @@ include('actions/auth.php');
                   color: white;
               }
 
-                
+
                 #CustomerList{
                 position: absolute;
                 z-index: 1;
@@ -88,7 +88,7 @@ include('actions/auth.php');
               #CustomerList ul{
                 background-color:#3c8dbc;
                 cursor:pointer;
-                  
+
               }
               #CustomerList li{
                   padding:5px;

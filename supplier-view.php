@@ -1,7 +1,5 @@
 <?php
-include 'template/header.php';
-include 'template/top_navbar.php';
-include 'template/main_navbar.php';
+
 
 
 $supplier_id = $_GET['supid'];
@@ -15,6 +13,20 @@ $supplier = mysqli_fetch_array($supplier_query);
 
 $find_grn_sql = "select * from op_grn WHERE SUPPLIER_ID='".$supplier_id."'";
 $grn_query = mysqli_query($dbCon,$find_grn_sql);
+
+
+
+
+
+
+
+
+
+
+$title = $supplier['SUPPLIER_NAME']." | View Supplier";
+include 'template/header.php';
+include 'template/top_navbar.php';
+include 'template/main_navbar.php';
 
 
 

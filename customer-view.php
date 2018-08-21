@@ -1,10 +1,4 @@
 <?php
-include 'template/header.php';
-include 'template/top_navbar.php';
-include 'template/main_navbar.php';
-
-
-
 
 $customer_id = $_GET['cusid'];
 
@@ -36,6 +30,22 @@ $customer_sales = mysqli_fetch_array($total_sales_query);
 $total_profit_sql = "select SUM(INVOICE_PROFIT) as totalprofit from op_invoice_main WHERE CUSTOMER_ID='".$customer_id."'";
 $total_profit_query = mysqli_query($dbCon,$total_profit_sql);
 $customer_profit = mysqli_fetch_array($total_profit_query);
+
+
+
+
+
+
+$title = $customer['FIRSTNAME']." ".$customer['LASTNAME']." | Customer Report ";
+
+include 'template/header.php';
+include 'template/top_navbar.php';
+include 'template/main_navbar.php';
+
+
+
+
+
 
 
 

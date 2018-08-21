@@ -1,4 +1,6 @@
 <?php
+$title = "Add new product";
+
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';
@@ -171,7 +173,7 @@ function calculate(){
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary" name="submit">Add Product</button>
                   <a href="products.php"><button type="button" class="btn btn-default">Back</button></a>
-                    
+
                      <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal">Add New Product Category</button>
                 </div>
               </form>

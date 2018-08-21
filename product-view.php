@@ -1,4 +1,5 @@
 <?php
+$title = "View Product";
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';
@@ -146,11 +147,11 @@ $stock_value = mysqli_fetch_array($get_stock_query);
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary" name="submit">Update Product</button>
-                    
+
                   <a href="products.php"><button type="button" class="btn btn-default">Back</button></a>
-                    
+
                   <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#DeleteProduct"><i class="fa fa-trash-o"></i></button>
-                    
+
                 </div>
               </form>
             </div>

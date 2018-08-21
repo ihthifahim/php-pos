@@ -1,4 +1,7 @@
   <?php
+
+$title = "Products";
+
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';
@@ -41,10 +44,10 @@ $count = mysqli_fetch_array($dataCount);
           </div><!-- end of div search bar column -->
 
           <div class="col-md-3 col-sm-6"><p><strong>Total Number of Products : </strong><span class="badge bg-primary"><?php  echo $count['count']; ?></span></p></div>
-              
+
               <?php if($_SESSION['user_level'] == 1){  ?>
-              
-              
+
+
 <div class="col-md-6"><a href="product-add.php"><button type="button" class="btn btn-block btn-primary btn-sm pull-right col-md-4">Add New Product</button></a></div>  <?php } ?>
 
           </div><!-- end of div first row -->
@@ -108,36 +111,36 @@ $count = mysqli_fetch_array($dataCount);
                   <table class="table">
                     <thead><tr>
 
-                        <?php 
-                        
+                        <?php
+
                         if($_SESSION['user_level'] == 1){
                             ?>
-                            
+
                         <th>Product Description</th>
                       <th>Category</th>
                       <th>Product MRP</th>
                       <th>Product Cost Price</th>
                       <th>Quantity Available</th>
                       <th>Actions</th>
-                            
+
                         <?php
                         } else {
                             ?>
-                        
+
                         <th>Product Description</th>
                       <th>Category</th>
                       <th>Product MRP</th>
-                      
+
                       <th>Quantity Available</th>
-                                            
+
                         <?php
-                            
+
                         }
-                        
+
                         ?>
-                        
-                        
-                   
+
+
+
                     </tr></thead>
 
                     <tbody id="result"></tbody>

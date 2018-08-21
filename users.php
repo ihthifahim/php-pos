@@ -1,10 +1,13 @@
 <?php
+
+$title = "Users";
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';
+include 'template/notifications.php';
 
 ?>
- 
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -15,7 +18,7 @@ include 'template/main_navbar.php';
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Users</h1>
           </div><!-- /.col -->
-         
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -39,14 +42,14 @@ include 'template/main_navbar.php';
       <div class="col-md-5">
       <a href="user-add.php"><button type="button" class="pull-right btn btn-block btn-primary btn-flat col-md-3">     Add User</button></a>
       </div>
-      
+
       </div>
       <br/>
-        
+
       <div class="row">
           <div class="col-12">
             <div class="card">
-              
+
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
@@ -57,12 +60,12 @@ include 'template/main_navbar.php';
                     <th>Mobile No</th>
                  <th>Actions</th>
                   </tr>
-                      
+
                             <?php
                       include "actions/dbconnection.php";
                       $all_users_sql = "select * from op_users";
                       $all_users_query = mysqli_query($dbCon,$all_users_sql);
-                      
+
                       while($users = mysqli_fetch_array($all_users_query)){
                          echo "<tr>";
                           echo "<td>".$users['USER_ID']."</td>";
@@ -71,12 +74,8 @@ include 'template/main_navbar.php';
                           echo "<td>".$users['MOBILE']."</td>";
                           echo "<td><a href=user-edit.php?user_id=".$users['USER_ID']."><span class='fa fa-edit'></span></a></td>";
                       }
-                      
+
                       ?>
-                      
-                      
-                      
-              
 
 
 
@@ -84,7 +83,11 @@ include 'template/main_navbar.php';
 
 
 
-                 
+
+
+
+
+
                 </tbody></table>
               </div>
               <!-- /.card-body -->
@@ -95,13 +98,13 @@ include 'template/main_navbar.php';
 
 
 
-        
+
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  
+
 
  <?php include 'template/footer.php';  ?>

@@ -1,7 +1,5 @@
 <?php
-include 'template/header.php';
-include 'template/top_navbar.php';
-include 'template/main_navbar.php';
+
 
 include 'actions/dbconnection.php';
 //Get Invoice Details
@@ -33,6 +31,26 @@ $get_invoice_detail_query = mysqli_query($dbCon,$get_invoice_detail_sql);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$title = $invoice_data['INVOICE_NUMBER']." | Invoice";
+
+include 'template/header.php';
+include 'template/top_navbar.php';
+include 'template/main_navbar.php';
 
 
 

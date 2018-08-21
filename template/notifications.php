@@ -1,5 +1,27 @@
 
 <?php
+//===============================================
+//User added notification
+if(isset($_GET['useradded'])){ ?>
+
+  <script>
+  $(document).ready(function(){
+    swal("Good job!", "User Succussfully Added!", "success");
+
+  });
+  </script>
+
+<?php } ?>
+
+
+
+
+
+
+
+
+
+<?php
 //Customer notifications
 if(isset($_GET['CustomerAdded'])){ ?>
 

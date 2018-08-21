@@ -1,10 +1,13 @@
 <?php
+
+$title = "Add New User";
+
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';
 
 ?>
- 
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -15,7 +18,7 @@ include 'template/main_navbar.php';
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Add Users</h1>
           </div><!-- /.col -->
-         
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -35,44 +38,50 @@ include 'template/main_navbar.php';
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form action="actions/user_add.php" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label>First Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="firstname">
                   </div>
                   <div class="form-group">
                     <label>Last Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="lastname">
                   </div>
                   <div class="form-group">
                     <label>Email Address</label>
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" name="email">
                   </div>
                   <div class="form-group">
                     <label>Mobile Number</label>
-                    <input type="text" class="form-control" >
+                    <input type="text" class="form-control" name="mobile">
+                  </div>
+                  <hr><br/>
+                  <h4>Login Details</h4>
+                  <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username">
                   </div>
                   <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password">
                   </div>
-                    
+
                     <div class="form-group">
                     <label>Access Level</label>
-                    <select class="form-control">
-                    <option>Administrator</option>    
-                        <option>Cashier</option>
-                        
+                    <select class="form-control" name="access">
+                    <option value="1">Administrator</option>
+                        <option value="2">Cashier</option>
+
                     </select>
                   </div>
-                 
-                  
+
+
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Add User</button>
+                  <button type="submit" class="btn btn-primary" name="adduser">Add User</button>
                   <a href="users.php"><button type="button" class="btn btn-default">Back</button></a>
                 </div>
               </form>
@@ -99,13 +108,13 @@ include 'template/main_navbar.php';
 </div><!-- end of div row -->
 
 
-        
+
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  
+
 
  <?php include 'template/footer.php';  ?>

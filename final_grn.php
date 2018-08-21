@@ -1,10 +1,5 @@
 <?php
-include 'template/header.php';
-include 'template/top_navbar.php';
-include 'template/main_navbar.php';
-
 include 'actions/dbconnection.php';
-
 $grn_number = $_GET['grn'];
 
 $grn_details_sql = "select * from op_grn WHERE GRN_NUMBER='".$grn_number."'";
@@ -15,6 +10,15 @@ $grn_details_data = mysqli_fetch_array($grn_details_query);
 $grn_user_sql = "select FIRSTNAME from op_users WHERE USER_ID='".$grn_details_data['USER_ID']."'";
 $grn_user_query = mysqli_query ($dbCon,$grn_user_sql);
 $grn_user_data = mysqli_fetch_array($grn_user_query);
+
+
+
+$title = $grn_details_data['GRN_NUMBER']." | GRN";
+include 'template/header.php';
+include 'template/top_navbar.php';
+include 'template/main_navbar.php';
+
+
 
 
 

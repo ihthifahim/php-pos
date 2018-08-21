@@ -1,10 +1,12 @@
 <?php
+$title = "Invoices";
+
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';
 
 ?>
- 
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -15,7 +17,7 @@ include 'template/main_navbar.php';
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Invoices</h1>
           </div><!-- /.col -->
-         
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -35,7 +37,7 @@ include 'template/main_navbar.php';
                 </div>
                       </div>
 
-          
+
       <div class="col-md-6">
           <div class="row">
           <div class="col-md-6">
@@ -46,10 +48,10 @@ include 'template/main_navbar.php';
                     <input type="date" class="form-control col-md-7" id="datepicker" name="fromDate">
 
                   </div>
-          
+
               </div>
-              
-              
+
+
               <div class="col-md-6">
                  <div class="row">
 
@@ -57,26 +59,26 @@ include 'template/main_navbar.php';
                     <input type="date" class="form-control col-md-7" id="datepicker" name="toDate">
 
                   </div>
-              
+
               </div>
-          
+
           </div>
- 
+
       </div>
-          
+
           <div class="col-md-2">
           <button type="submit" class="btn btn-primary btn-block" name="searchInvoice">Search</button>
               </form>
           </div>
           </div>
-          
+
       </div>
       <br/>
-        
+
       <div class="row">
           <div class="col-12">
             <div class="card">
-              
+
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover">
@@ -91,7 +93,7 @@ include 'template/main_navbar.php';
                     <th>Actions</th>
                   </tr>
                     </thead>
-                    
+
                       <script>
 
               $(document).ready(function(){
@@ -131,16 +133,10 @@ include 'template/main_navbar.php';
 
               </script>
 
-                    
-                    
-                    
+
+
+
                     <tbody id="result">
-                        
-                        
-                        
-                        
-                 
-                  
 
 
 
@@ -148,7 +144,13 @@ include 'template/main_navbar.php';
 
 
 
-                 
+
+
+
+
+
+
+
                 </tbody></table>
               </div>
               <!-- /.card-body -->
@@ -159,13 +161,13 @@ include 'template/main_navbar.php';
 
 
 
-        
+
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  
+
 
  <?php include 'template/footer.php';  ?>

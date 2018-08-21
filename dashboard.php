@@ -1,4 +1,5 @@
 <?php
+$title = "Dashboard";
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';

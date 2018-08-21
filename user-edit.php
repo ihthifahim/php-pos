@@ -1,9 +1,11 @@
 <?php
+
+$title = "Edit User";
 include 'template/header.php';
 include 'template/top_navbar.php';
 include 'template/main_navbar.php';
 include 'actions/dbconnection.php';
-include "template/notifications.php"; 
+include "template/notifications.php";
 
 $user_id = $_GET['user_id'];
 
@@ -13,7 +15,7 @@ $user = mysqli_fetch_array($find_user_query);
 
 
 ?>
- 
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -24,7 +26,7 @@ $user = mysqli_fetch_array($find_user_query);
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Add Users</h1>
           </div><!-- /.col -->
-         
+
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -63,25 +65,34 @@ $user = mysqli_fetch_array($find_user_query);
                     <label>Mobile Number</label>
                     <input type="text" class="form-control" name="mobile" value="<?php echo $user['MOBILE']; ?>">
                   </div>
-                 
-                    
+<br/>
+                  <hr>
+                  <h4>Login Details</h4>
+
+
+
+                  <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username" value="<?php echo $user['USERNAME']; ?>">
+                  </div>
+
                     <div class="form-group">
                     <label>Access Level</label>
                     <select class="form-control" name="accessLevel">
-                        
+
                         <option value="1" <?php if($user['USER_LEVEL']=="1") echo "selected=\"selected\""; ?>><?php echo "Administrator"; ?></option>
                         <option value="2" <?php if($user['USER_LEVEL']=="2") echo "selected=\"selected\""; ?>><?php echo "Cashier"; ?></option>
-                 
-                        
+
+
                     </select>
                   </div>
-                 
-                  
+
+
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    
+
                   <button type="submit" class="btn btn-primary" name="updateUser">Update User</button>
                      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#passwordChange">Update Password</button>
                   <a href="users.php"><button type="button" class="btn btn-default">Back</button></a>
@@ -91,13 +102,13 @@ $user = mysqli_fetch_array($find_user_query);
 
 
 </div>
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
                 <!-- Modal -->
 <div id="passwordChange" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -107,20 +118,20 @@ $user = mysqli_fetch_array($find_user_query);
       <div class="modal-header">
           <h4 class="modal-title">Change password</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
+
       </div>
         <form action="actions/user_edit.php" method="post">
             <input type="hidden" name="user_id" value="<?php echo $user['USER_ID'];?>">
       <div class="modal-body">
-        
+
            <div class="form-group">
                     <label>Password</label>
                     <input type="password" class="form-control" name="password">
                   </div>
           <br/>
-         
-          
-          
+
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -132,19 +143,19 @@ $user = mysqli_fetch_array($find_user_query);
   </div>
 </div>
         <!-- end of modal -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -164,13 +175,13 @@ $user = mysqli_fetch_array($find_user_query);
 </div><!-- end of div row -->
 
 
-        
+
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  
+
 
  <?php include 'template/footer.php';  ?>
